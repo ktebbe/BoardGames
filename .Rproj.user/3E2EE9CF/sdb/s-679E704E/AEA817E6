@@ -1,0 +1,17 @@
+{
+    "contents" : "ratings <- read.csv(\"gameratings.csv\", as.is=T)\nnames(ratings) <- c(\"Name\", \"Random\", \"Social\", \"Learning\", \"Time\", \"Paths\")\n\n\ntab <- as.data.frame(matrix(nrow = 5, ncol = 2))\nnames(tab) <- c(\"Feature\", \"Scale\")\ntab[1, ] <- c(\"Random\", \"Random --- Deterministic\")\ntab[2, ] <- c(\"Social\", \"Social --- Insular\")\ntab[3, ] <- c(\"Learning\", \"Easy to learn --- Hard to learn\")\ntab[4, ] <- c(\"Time\", \"Quick to play --- wtf how is the game not over\")\ntab[5, ] <- c(\"Paths\", \"One path to victory -- many paths\")\n\ncols <- c(\"Social\", \"Learning\")\nvals <- c(-4, -4)\ncalculateDistance <- function(cols, vals){\n  sub <- ratings[,c(\"Name\", cols)]\n  sub$distance <- 0\n  for(i in 1:nrow(sub)){\n    inner <- 0\n    ## loop through each selected feature\n    for(j in 1:length(vals)){\n      inner <- inner + (vals[j] - sub[i, cols[j]])^2\n    }\n    ## store the distance for this game\n    sub$distance[i] <- sqrt(inner)\n  }\n  \n}",
+    "created" : 1544064094274.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3288471567",
+    "id" : "AEA817E6",
+    "lastKnownWriteTime" : 1543802968,
+    "path" : "~/Desktop/GameRatings/functions.R",
+    "project_path" : "functions.R",
+    "properties" : {
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

@@ -1,0 +1,17 @@
+{
+    "contents" : "library(shiny)\n\nshinyUI(fluidPage(\n  uiOutput(\"title_panel\"),\n  \n  sidebarLayout(\n    sidebarPanel( \n      #uiOutput(\"numPlayers\"),\n      uiOutput(\"featuresUI\"),\n      br(),\n      uiOutput(\"slider1UI\"),\n      br(),\n      uiOutput(\"slider2UI\"),\n      br(),\n      uiOutput(\"slider3UI\"),\n      br(),\n      uiOutput(\"slider4UI\"),\n      br(),\n      uiOutput(\"slider5UI\"),\n      br(),\n      actionLink(\"about\", \"What's going on??\")\n    ),\n    \n    mainPanel(\n      plotOutput(\"plotUI\"),\n      uiOutput(\"recUI\"),\n      tags$head(tags$script(HTML(\n        paste0(\n          '$(document).ready(function(){\n                    $(\"#about\")\n                    .popover({html: true, \n                    title: \"About this app\", \n                    content: \"', readChar(\"about.txt\", file.info(\"about.txt\")$size), \n          '\", trigger: \"click\", placement: \"bottom\"\n                    });\n                    });'))))\n    )\n    \n  )))",
+    "created" : 1544064101326.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3586313909",
+    "id" : "9734F351",
+    "lastKnownWriteTime" : 1543801843,
+    "path" : "~/Desktop/GameRatings/ui.R",
+    "project_path" : "ui.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
