@@ -1,4 +1,6 @@
 library(shiny)
+library(plotly)
+source("functions.R", local=TRUE)
 
 shinyServer(function(input, output, session) {
 
@@ -44,12 +46,16 @@ shinyServer(function(input, output, session) {
     
   })
   ###############
-  output$plotUI <- renderPlot({
+  output$plotUI <- renderPlotly({
     ### color the recomended 5 in red!!!! 
     if(length(input$features) != 2) return(NULL)
-    plot(ratings[,input$features[1]], ratings[,input$features[2]],
-         xlab = tab$Scale[tab$Feature == input$features[1]], 
-         ylab = tab$Scale[tab$Feature == input$features[2]])
+    # plot(ratings[,input$features[1]], ratings[,input$features[2]],
+    #      xlab = tab$Scale[tab$Feature == input$features[1]], 
+    #      ylab = tab$Scale[tab$Feature == input$features[2]])
+    
+    #plot_ly(data = ratings, x = ~input$features[1], y = ~input$features[2], type = "scatter")
+    plot_ly(data = ratings, x = ~Random, y = ~Social, type = "scatter")
+    
   })
   
 

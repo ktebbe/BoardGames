@@ -22,7 +22,7 @@ shinyUI(fluidPage(
     ),
     
     mainPanel(
-      plotOutput("plotUI"),
+      plotlyOutput("plotUI"),
       uiOutput("recUI"),
       tags$head(tags$script(HTML(
         paste0(
